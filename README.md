@@ -1,24 +1,49 @@
-# README
+# Challenge Kobana
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este é um projeto desenvolvido para uma avaliação técnica da empresa Kobana.
 
-Things you may want to cover:
+O sistema oferece um CRUD para gestão de boletos.
 
-* Ruby version
+## Tabela de Conteúdo
 
-* System dependencies
+* [Instalação](#instalacao)
+* [Funcionalidades](#funcionalidades)
+* [Testes com RSpec](#testes-com-rspec)
 
-* Configuration
+## Instalação
 
-* Database creation
+1. Clone o projeto.
 
-* Database initialization
+	~~~ sh
+	$ git@github.com:kellypc/challenge-kobana-rails.git
+	~~~
 
-* How to run the test suite
+2. Entre no container(Docker)
 
-* Services (job queues, cache servers, search engines, etc.)
+	~~~ sh
+	$ docker-compose run web bash
+	~~~
 
-* Deployment instructions
+3. Execute as migrações
 
-* ...
+~~~ sh
+$ rails db:migrate
+~~~
+
+4. Inicie a aplicação
+
+	~~~ sh
+	$ rails s
+	~~~
+
+## Funcionalidades
+
+## Testes com RSpec
+
+O projeto foi construído com TDD (Test Driven Development). Para executar os testes, basta executar os testes com o RSpec.
+
+1. Execute todos os  testes
+
+	~~~ sh
+	$ bundle exec rspec
+	~~~
