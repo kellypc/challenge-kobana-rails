@@ -1,0 +1,2 @@
+class BankBillet < ApplicationRecord
+end
