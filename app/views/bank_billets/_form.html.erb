@@ -1,0 +1,50 @@
+<%= form_with model: bank_billet do |form| %>
+  <div>
+    <%= form.label :amount %><br>
+    <%= form.number_field :amount %>
+  </div><br>
+
+  <div>
+    <%= form.label :expire_at %><br>
+    <%= form.date_field :expire_at %><br>
+  </div><br>
+
+  <div>
+    <%= form.label :customer_person_name %><br>
+    <%= form.text_field :customer_person_name %><br>
+  </div><br>
+
+  <div>
+    <%= form.label :customer_cnpj_cpf %><br>
+    <%= form.text_field :customer_cnpj_cpf %><br>
+  </div><br>
+
+  <div>
+    <%= form.label :customer_state %><br>
+    <%= form.text_field :customer_state %><br>
+  </div><br>
+
+  <div>
+    <%= form.label :customer_city_name %><br>
+    <%= form.text_field :customer_city_name %><br>
+  </div><br>
+
+  <div>
+    <%= form.label :customer_zipcode %><br>
+    <%= form.text_field :customer_zipcode %><br>
+  </div><br>
+
+  <div>
+    <%= form.label :customer_address %><br>
+    <%= form.text_field :customer_address %><br>
+  </div><br>
+  <div>
+
+    <%= form.label :customer_address_neighborhood %><br>
+    <%= form.text_field :customer_address_neighborhood %><br>
+  </div><br>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
