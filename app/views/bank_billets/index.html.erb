@@ -1,0 +1,17 @@
+<h1>Boletos Bancários</h1>
+
+<ul>
+  <% @bank_billets.each do |bank_billet| %>
+    <li>
+      <%= bank_billet.amount %>
+      <%= bank_billet.expire_at %>
+      <%= bank_billet.customer_person_name %>
+      <%= bank_billet.customer_cnpj_cpf %>
+      <%= bank_billet.customer_state %>
+      <%= bank_billet.customer_city_name %>
+      <%= bank_billet.customer_zipcode %>
+      <%= bank_billet.customer_address %>
+      <%= bank_billet.customer_address_neighborhood %>
+    </li>
+  <% end %>
+</ul>
