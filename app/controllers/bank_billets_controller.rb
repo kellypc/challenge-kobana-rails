@@ -1,5 +1,5 @@
 class BankBilletsController < ApplicationController
-  before_action :set_bank_billet, only: [:show]
+  before_action :set_bank_billet, only: [:show, :update, :edit, :destroy]
   
   def index
     @bank_billets = BankBillet.all
@@ -20,7 +20,19 @@ class BankBilletsController < ApplicationController
       redirect_to @bank_billet, status: :created
     else
       flash[:error] = "Something went wrong"
-      render 'new', status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @bank_billet = BankBillet.find(params[:id])
+  end
+
+  def update
+    if @bank_billet.update(bank_billet_params)
+      redirect_to @bank_billet
+    else
+      render json: @bank_billet.errors, status: :unprocessable_entity
     end
   end
 

@@ -6,7 +6,7 @@
 
   <div>
     <%= form.label :expire_at %><br>
-    <%= form.date_field :expire_at %><br>
+    <%= form.date_field :expire_at.strftime('%Y/%m/%d') %><br>
   </div><br>
 
   <div>
