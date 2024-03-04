@@ -11,4 +11,8 @@
 <%= @bank_billet.customer_address_neighborhood %>
 
 <%= link_to 'Edit', edit_bank_billet_path(@bank_billet) %>
+<%= link_to "Destroy", bank_billet_path(@bank_billet), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
 <%= link_to 'Voltar', bank_billets_path(@bank_billet) %>

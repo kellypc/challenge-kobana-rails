@@ -58,5 +58,15 @@ RSpec.describe BankBilletsController, type: :controller do
         expect(bank_billet).to eq(params)
       end
     end
+
+    context 'DELETE #destroy' do
+      let(:bank_billet) { FactoryBot.create(:bank_billet) }
+
+      it 'should delete bank_billet' do
+        bank_billet.delete
+       
+        expect(response).to have_http_status(:see_other)
+      end
+    end
   end
 end
