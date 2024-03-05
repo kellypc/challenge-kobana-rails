@@ -16,8 +16,10 @@ class BankBilletsController < ApplicationController
     @bank_billet = BankBillet.new(bank_billet_params)
 
     if @bank_billet.save
+      KobanaService.new(@bank_billet).create_bank_billet
+
       flash[:success] = "Object successfully created"
-      redirect_to @bank_billet, status: :created
+      redirect_to @bank_billet
     else
       flash[:error] = "Something went wrong"
       render :edit, status: :unprocessable_entity

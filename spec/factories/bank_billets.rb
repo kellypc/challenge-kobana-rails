@@ -1,13 +1,13 @@
 FactoryBot.define do
   factory :bank_billet do
-    amount { 1.5 }
-    expire_at { "2024-03-02" }
-    customer_person_name { "MyString" }
-    customer_cnpj_cpf { "MyString" }
-    customer_state { "MyString" }
-    customer_city_name { "MyString" }
-    customer_zipcode { "MyString" }
-    customer_address { "MyString" }
-    customer_address_neighborhood { "MyString" }
+    amount { 1500 }
+    expire_at { Date.today.end_of_month.strftime('%Y/%m/%d') }
+    customer_person_name { "Joao da Silva" }
+    customer_cnpj_cpf { "563.878.830-16" }
+    customer_state { "SP" }
+    customer_city_name { "São Paulo" }
+    customer_zipcode { "07111000" }
+    customer_address { "Avenida Paulo Faccini, 208" }
+    customer_address_neighborhood { "Jd Macedo" }
   end
 end
