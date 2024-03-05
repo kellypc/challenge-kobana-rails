@@ -1,18 +1,33 @@
-<h1>Boleto Bancário</h1>
+<section class="jumbotron text-center col-md-12">
+  <div class="container">
+    <h3 class="jumbotron-heading mt-5">Detalhes do Boleto</h3>
 
-<%= @bank_billet.amount %>
-<%= @bank_billet.expire_at %>
-<%= @bank_billet.customer_person_name %>
-<%= @bank_billet.customer_cnpj_cpf %>
-<%= @bank_billet.customer_state %>
-<%= @bank_billet.customer_city_name %>
-<%= @bank_billet.customer_zipcode %>
-<%= @bank_billet.customer_address %>
-<%= @bank_billet.customer_address_neighborhood %>
+    <div class="card">
+      <h5 class="card-header"><%= @bank_billet.customer_person_name %></h5>
+      <div class="card-body">
+        <p class="card-text">Quantia: <%= @bank_billet.amount %></p>
+        <p class="card-text">CNPJ/CPF: <%= @bank_billet.customer_cnpj_cpf %></p>
+        <p class="card-text">Estado: <%= @bank_billet.customer_state %></p>
+        <p class="card-text">Cidade: <%= @bank_billet.customer_city_name %></p>
+        <p class="card-text">CEP<%= @bank_billet.customer_zipcode %></p>
+        <p class="card-text">Endereço: <%= @bank_billet.customer_address %></p>
+        <p class="card-text">Bairro: <%= @bank_billet.customer_address_neighborhood %></p>
+      </div>
+    </div>
+    <div class="btn btn-primary">
+      <%= link_to 'Edit', edit_bank_billet_path(@bank_billet), :class => "btn" %>
+    </div>
+    <div class="btn btn-primary m-3">
+      <%= link_to "Destroy", bank_billet_path(@bank_billet), data: {
+                          turbo_method: :delete,
+                          turbo_confirm: "Você tem certeza?"
+                        }, :class => "btn" %>
+    </div>
+    <div class="btn btn-primary m-3">
+      <%= link_to 'Voltar', bank_billets_path(@bank_billet), :class => "btn" %>
+    </div>
+  </div>
+    
 
-<%= link_to 'Edit', edit_bank_billet_path(@bank_billet) %>
-<%= link_to "Destroy", bank_billet_path(@bank_billet), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %>
-<%= link_to 'Voltar', bank_billets_path(@bank_billet) %>
+</section>
+

@@ -11,6 +11,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'nav', bank_billet: @bank_billet  %>
+
+    <div class="container mt-5 pt-5">
+      <%= yield %>
+    </div>
+
   </body>
 </html>

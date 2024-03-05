@@ -5,7 +5,7 @@ pt-BR:
       bank_billet: Boleto bancário
     attributes:
       bank_billet:
-        amount: Quantia
+        amount: Valor
         expire_at: Data de vencimento
         customer_person_name: Nome do cliente
         customer_cnpj_cpf: CPF/CNPJ do cliente

@@ -1,19 +1,28 @@
-<h1>Boletos Bancários</h1>
+<section class="jumbotron text-center col-md-12">
+  <div class="container">
+    <h1 class="jumbotron-heading mt-5">Bem-vindo ao Gerenciador de Boletos</h1>
+    <p class="lead text-muted">Visualize, Crie, Edite e Exclua seus Boletos Bancários</p>
 
-<ul>
-  <% @bank_billets.each do |bank_billet| %>
-    <li>
-      <%= bank_billet.amount %>
-      <%= bank_billet.expire_at %>
-      <%= bank_billet.customer_person_name %>
-      <%= bank_billet.customer_cnpj_cpf %>
-      <%= bank_billet.customer_state %>
-      <%= bank_billet.customer_city_name %>
-      <%= bank_billet.customer_zipcode %>
-      <%= bank_billet.customer_address %>
-      <%= bank_billet.customer_address_neighborhood %>
-    </li>
-  <% end %>
-</ul>
+    <h1>Boletos Bancários</h1>
 
-<%= link_to 'Criar novo Boleto Bancário', new_bank_billet_path %>
+    <div class="row">
+      <% @bank_billets.each do |bank_billet| %>
+        <div class="col-sm-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= bank_billet.customer_person_name %></h5>
+              <p class="card-text">Quantia: <%= bank_billet.amount %></p>
+              <div class="btn btn-primary mb-5">
+                <%= link_to 'Detalhes', bank_billet, :class=>"btn" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="btn btn-primary mb-5">
+      <%= link_to 'Criar novo Boleto Bancário', new_bank_billet_path, :class => "btn" %>
+    </div>
+  </div>
+
+</section>
