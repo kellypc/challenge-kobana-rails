@@ -1,6 +1,6 @@
-<div class="g-3">
+<div class="container">
   <%= form_with model: bank_billet, class: "row" do |form| %>
-    <div class="col-md-6">
+    <div class="col-sm-6">
       <%= form.label :amount %><br>
       <%= form.number_field :amount %>
     </div>
@@ -45,8 +45,11 @@
       <%= form.text_field :customer_address_neighborhood %><br>
     </div>
 
-    <div class="col-md-6">
-      <%= form.submit %>
+    <div class="col-md-6 mt-3">
+      <div class="btn btn-success mr-2 p-0">
+        <%= form.submit class: "btn" %>
+      </div>
+      
     </div>
   <% end %>
 </div>

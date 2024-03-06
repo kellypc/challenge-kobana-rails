@@ -1,33 +1,60 @@
-<section class="jumbotron text-center col-md-12">
+<section class="jumbotron text-left col-md-12">
   <div class="container">
-    <h3 class="jumbotron-heading mt-5">Detalhes do Boleto</h3>
+    <div class="row">
+      <div class="col-6">
+        <h3 class="jumbotron-heading mt-5 mb-3">Detalhes do Boleto</h3>
+      </div>
+      <div class="col-6 mt-4">
+        <div class="btn btn-success mr-2 p-0">
+          <%= link_to 'Visualizar Boleto', @bank_billet_details["formats"]["pdf"], class: "btn", target: :blank %>
+        </div>
 
-    <div class="card">
-      <h5 class="card-header"><%= @bank_billet.customer_person_name %></h5>
-      <div class="card-body">
-        <p class="card-text">Quantia: <%= @bank_billet.amount %></p>
-        <p class="card-text">CNPJ/CPF: <%= @bank_billet.customer_cnpj_cpf %></p>
-        <p class="card-text">Estado: <%= @bank_billet.customer_state %></p>
-        <p class="card-text">Cidade: <%= @bank_billet.customer_city_name %></p>
-        <p class="card-text">CEP<%= @bank_billet.customer_zipcode %></p>
-        <p class="card-text">Endereço: <%= @bank_billet.customer_address %></p>
-        <p class="card-text">Bairro: <%= @bank_billet.customer_address_neighborhood %></p>
+        <div class="btn btn-info mr-2 p-0">
+          <%= link_to 'Alterar', edit_bank_billet_path(@bank_billet), class: "btn" %>
+        </div>
+
+        <div class="btn btn-danger mr-2 p-0">
+          <%= link_to "Cancelar", bank_billet_path(@bank_billet), data: {
+                              turbo_method: :delete,
+                              turbo_confirm: "Você tem certeza?"
+                            }, class: "btn" %>
+        </div>
+
+        <div class="btn btn-secondary mr-2 p-0">
+          <%= link_to 'Voltar', bank_billets_path, class: "btn" %>
+        </div>
       </div>
     </div>
-    <div class="btn btn-primary">
-      <%= link_to 'Edit', edit_bank_billet_path(@bank_billet), :class => "btn" %>
-    </div>
-    <div class="btn btn-primary m-3">
-      <%= link_to "Destroy", bank_billet_path(@bank_billet), data: {
-                          turbo_method: :delete,
-                          turbo_confirm: "Você tem certeza?"
-                        }, :class => "btn" %>
-    </div>
-    <div class="btn btn-primary m-3">
-      <%= link_to 'Voltar', bank_billets_path(@bank_billet), :class => "btn" %>
-    </div>
-  </div>
-    
 
+    <div class="row">
+      <div class="col-6">
+        <div class="card">
+          <h5 class="card-header">Beneficiário: <%= @bank_billet_details['beneficiary_name'] %></h5>
+          <div class="card-body text-left">
+            <p class="card-text">Situação: <%= @bank_billet_details['status']%></p>
+            <p class="card-text">Valor: <%= @bank_billet_details['amount']%></p>
+            <p class="card-text">Vencimento: <%= formatted_date(@bank_billet_details['expire_at']) %></p>
+            <p class="card-text">Nosso Número: <%= @bank_billet_details['processed_our_number_raw']%></p>
+            <p class="card-text">Data de emissão: <%= formatted_date(@bank_billet_details['created_at']) %></p>
+            <p class="card-text">Data do Pagamento: <%= formatted_date(@bank_billet_details['paid_at']) %></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="card">
+          <h5 class="card-header">Pagador: <%= @bank_billet.customer_person_name %></h5>
+          <div class="card-body text-left">
+            <p class="card-text">Quantia: <%= @bank_billet.amount %></p>
+            <p class="card-text">CNPJ/CPF: <%= @bank_billet.customer_cnpj_cpf %></p>
+            <p class="card-text">Estado: <%= @bank_billet.customer_state %></p>
+          <p class="card-text">Cidade: <%= @bank_billet.customer_city_name %></p>
+          <p class="card-text">CEP<%= @bank_billet.customer_zipcode %></p>
+          <p class="card-text">Endereço: <%= @bank_billet.customer_address %></p>
+          <p class="card-text">Bairro: <%= @bank_billet.customer_address_neighborhood %></p>
+        </div>
+      </div>
+    </div>
+  </div>  
 </section>
 

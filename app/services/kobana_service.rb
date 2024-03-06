@@ -14,6 +14,21 @@ class KobanaService
     @bank_billet.update!(kobana_id: response_body["id"])
   end
 
+  def find_bank_billet
+    url = URI("#{BASE_URI}/#{bank_billet.kobana_id}")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+
+    request = Net::HTTP::Get.new(url)
+
+    add_headers(request)
+
+    response = http.request(request)
+    
+    JSON.parse(response.body)
+  end
+
   private
 
   attr_accessor :bank_billet
@@ -37,8 +52,8 @@ class KobanaService
   def payload
     {
       amount: bank_billet.amount,
-      expire_at: bank_billet.expire_at.strftime('%Y/%m/%d'),
-      customer_person_name: bank_billet.customer_city_name,
+      expire_at: bank_billet.expire_at&.strftime('%Y/%m/%d'),
+      customer_person_name: bank_billet.customer_person_name,
       customer_cnpj_cpf: bank_billet.customer_cnpj_cpf,
       customer_state: bank_billet.customer_state,
       customer_city_name: bank_billet.customer_city_name,

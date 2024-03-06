@@ -6,6 +6,7 @@ class BankBilletsController < ApplicationController
   end
 
   def show
+    @bank_billet_details = KobanaService.new(@bank_billet).find_bank_billet
   end
 
   def new
@@ -49,8 +50,6 @@ class BankBilletsController < ApplicationController
   def set_bank_billet
     @bank_billet = BankBillet.find(params[:id])
   end
-
-  private
 
   def bank_billet_params
     params.require(:bank_billet).permit(:amount, :expire_at, :customer_person_name, :customer_cnpj_cpf, :customer_state,
