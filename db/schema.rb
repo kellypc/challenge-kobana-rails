@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_02_233253) do
     t.string "customer_zipcode"
     t.string "customer_address"
     t.string "customer_address_neighborhood"
+    t.integer "status", default: 0
     t.string "kobana_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

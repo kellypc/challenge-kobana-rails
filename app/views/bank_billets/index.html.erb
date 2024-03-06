@@ -11,9 +11,10 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title"><%= bank_billet.customer_person_name %></h5>
-              <p class="card-text">Valor: <%= bank_billet.amount %></p>
+              <p class="card-text"><span class="badge badge-<%= bank_billet.status %>"><%= bank_billet.status %></p></span>
+              <p class="card-text">Valor: <%= number_to_currency bank_billet.amount %></p>
               <p class="card-text">Vencimento: <%= formatted_date(bank_billet.expire_at) %></p>
-              <div class="btn btn-primary mb-5">
+              <div class="btn btn-primary">
                 <%= link_to 'Detalhes', bank_billet, :class=>"btn" %>
               </div>
             </div>

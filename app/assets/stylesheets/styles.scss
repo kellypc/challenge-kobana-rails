@@ -4619,6 +4619,21 @@ textarea.form-control-lg {
   top: -1px;
 }
 
+.badge-canceled {
+  color: #fff;
+  background-color: #dc3545;
+}
+
+.badge-opened {
+  color: #fff;
+  background-color: #007bff;
+}
+
+.badge-paid {
+  color: #fff;
+  background-color: #28a745;
+}
+
 .alert {
   --bs-alert-bg: transparent;
   --bs-alert-padding-x: 1rem;

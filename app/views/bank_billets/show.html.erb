@@ -5,9 +5,11 @@
         <h3 class="jumbotron-heading mt-5 mb-3">Detalhes do Boleto</h3>
       </div>
       <div class="col-6 mt-4">
-        <div class="btn btn-success mr-2 p-0">
-          <%= link_to 'Visualizar Boleto', @bank_billet_details["formats"]["pdf"], class: "btn", target: :blank %>
-        </div>
+        <% if @bank_billet_details["formats"].present? %>
+          <div class="btn btn-success mr-2 p-0">
+            <%= link_to 'Visualizar Boleto', @bank_billet_details["formats"]["pdf"], class: "btn", target: :blank %>
+          </div>
+        <% end %>
 
         <div class="btn btn-info mr-2 p-0">
           <%= link_to 'Alterar', edit_bank_billet_path(@bank_billet), class: "btn" %>
@@ -31,8 +33,9 @@
         <div class="card">
           <h5 class="card-header">Beneficiário: <%= @bank_billet_details['beneficiary_name'] %></h5>
           <div class="card-body text-left">
-            <p class="card-text">Situação: <%= @bank_billet_details['status']%></p>
-            <p class="card-text">Valor: <%= @bank_billet_details['amount']%></p>
+            <p class="card-text">Situação: <span class="badge badge-<%= @bank_billet.status %>"><%= @bank_billet_details['status'] %></p></span>
+            <p class="card-text">ID Kobana: <%= @bank_billet_details['id']%></p>
+            <p class="card-text">Valor: <%= number_to_currency @bank_billet_details['amount']%></p>
             <p class="card-text">Vencimento: <%= formatted_date(@bank_billet_details['expire_at']) %></p>
             <p class="card-text">Nosso Número: <%= @bank_billet_details['processed_our_number_raw']%></p>
             <p class="card-text">Data de emissão: <%= formatted_date(@bank_billet_details['created_at']) %></p>

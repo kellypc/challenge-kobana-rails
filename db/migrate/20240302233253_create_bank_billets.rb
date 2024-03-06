@@ -10,7 +10,7 @@ class CreateBankBillets < ActiveRecord::Migration[7.1]
       t.string :customer_zipcode
       t.string :customer_address
       t.string :customer_address_neighborhood
-
+      t.integer :status, default: 0
       t.string :kobana_id
 
       t.timestamps

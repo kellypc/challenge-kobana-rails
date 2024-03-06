@@ -28,6 +28,19 @@ class KobanaService
     
     JSON.parse(response.body)
   end
+  
+  def cancel_bank_billet
+    url = URI("#{BASE_URI}/#{bank_billet.kobana_id}/cancel")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+
+    request = Net::HTTP::Put.new(url)
+    
+    add_headers(request)
+
+    http.request(request)
+  end
 
   private
 

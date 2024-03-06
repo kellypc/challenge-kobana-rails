@@ -40,9 +40,14 @@ class BankBilletsController < ApplicationController
   end
 
   def destroy
-    @bank_billet.destroy
-    
-    redirect_to root_path, status: :see_other
+    if @bank_billet.canceled!
+      KobanaService.new(@bank_billet).cancel_bank_billet
+      flash[:success] = "Boleto cancelado"
+      redirect_to root_path, status: :see_other
+    else
+      flash[:error] = "Something went wrong"
+      render :show
+    end
   end
 
   private
