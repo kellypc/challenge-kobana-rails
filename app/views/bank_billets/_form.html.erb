@@ -1,51 +1,60 @@
 <div class="container">
+  <% if bank_billet.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% bank_billet.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <%= form_with model: bank_billet, class: "row" do |form| %>
     <div class="col-sm-6">
       <%= form.label :amount %><br>
-      <%= form.number_field :amount %>
+      <%= form.number_field :amount, class: "w-100" %>
     </div>
 
     <div class="col-md-6">
       <%= form.label :expire_at %><br>
-      <%= form.date_field :expire_at %><br>
+      <%= form.date_field :expire_at, class: "w-100" %><br>
     </div>
 
     <div class="col-md-6">
       <%= form.label :customer_person_name %><br>
-      <%= form.text_field :customer_person_name %><br>
+      <%= form.text_field :customer_person_name, class: "w-100" %><br>
     </div><br>
 
     <div class="col-md-6">
       <%= form.label :customer_cnpj_cpf %><br>
-      <%= form.text_field :customer_cnpj_cpf %><br>
+      <%= form.text_field :customer_cnpj_cpf, class: "w-100" %><br>
     </div>
 
     <div class="col-md-6">
       <%= form.label :customer_state %><br>
-      <%= form.text_field :customer_state %><br>
+      <%= form.text_field :customer_state, class: "w-100" %><br>
     </div>
 
     <div class="col-md-6">
       <%= form.label :customer_city_name %><br>
-      <%= form.text_field :customer_city_name %><br>
+      <%= form.text_field :customer_city_name, class: "w-100" %><br>
     </div>
 
     <div class="col-md-6">
       <%= form.label :customer_zipcode %><br>
-      <%= form.text_field :customer_zipcode %><br>
+      <%= form.text_field :customer_zipcode, class: "w-100" %><br>
     </div>
 
     <div class="col-md-6">
       <%= form.label :customer_address %><br>
-      <%= form.text_field :customer_address %><br>
+      <%= form.text_field :customer_address, class: "w-100" %><br>
     </div>
 
     <div class="col-md-6">
       <%= form.label :customer_address_neighborhood %><br>
-      <%= form.text_field :customer_address_neighborhood %><br>
+      <%= form.text_field :customer_address_neighborhood, class: "w-100" %><br>
     </div>
 
-    <div class="col-md-6 mt-3">
+    <div class="col-md-12 mt-3">
       <div class="btn btn-success mr-2 p-0">
         <%= form.submit class: "btn" %>
       </div>
