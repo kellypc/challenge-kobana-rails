@@ -18,7 +18,8 @@ O sistema oferece um CRUD para gestão de boletos.
 	$ git@github.com:kellypc/challenge-kobana-rails.git
 	~~~
 
-2. Entre no container(Docker)
+2. Para executar os próximos passos, é preciso ter o [docker](https://docs.docker.com/get-docker/) e o docker-compose instalados em sua máquina.
+	Entre no container(Docker)
 
 	~~~ sh
 	$ docker-compose run web bash
